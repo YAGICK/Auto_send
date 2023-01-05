@@ -33,7 +33,7 @@ def login_etc(your_id, your_pass):
     try:
         print("20秒以内にプロキシを設定してください")
         time.sleep(20)
-        driver.get("https://www.instagram.com/accounts/login/")
+        driver.get("https://xxxxxxxxxxxxxxxxxxxxxxxxxx")
         time.sleep(3)
         print("-----------------------------------------------")
         print("Succcess: <URLにアクセス完了>")
