@@ -32,7 +32,7 @@ if __name__ == '__main__':
         TEXT_PASS_AF = 'r' + TEXT_PASS_BE
 
         print('ペースト ⇨ 送信までの時間間隔指定')
-        print('引数指定(第一, 第二) 例:(0,3)')
+        print('例:(0,3)だと0~3秒で送信')
         RNDM_TIME = input('>>> ')
         if RNDM_TIME == 'r':
             continue
