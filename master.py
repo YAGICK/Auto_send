@@ -36,7 +36,6 @@ if __name__ == '__main__':
         RNDM_TIME = input('>>> ')
         if RNDM_TIME == 'r':
             continue
-        '''/Users/choco/Desktop/auto_tin/dist/worker
-        のパスを通した状態で"worker"を指定して直接実行する'''
-        subprocess.run(["worker.py",  ID, PASS, TEXT_PASS_BE, RNDM_TIME])
+        #パスを通した状態で"worker"を指定して直接実行する'''
+        subprocess.run(["worker",  ID, PASS, TEXT_PASS_BE, RNDM_TIME])
     
