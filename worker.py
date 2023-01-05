@@ -10,14 +10,12 @@ import selenium
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.chrome import ChromeDriverManager
+
 option = Options()
 option.add_argument('--incognito')
-#option.add_argument('--headless')
 option.add_argument('enable-crash-reporter')
 #プロファイル指定
-PROFILE_PATH = r'/Users/choco/Desktop/Chrome_Profile/chrome/auto'
+PROFILE_PATH = r'xxxxxxxxxxxxxxxxxxxxxx'
 option.add_argument('--user-data-dir=' + PROFILE_PATH)
 driver = selenium.webdriver.Chrome(ChromeDriverManager().install(),options=option)
 driver.set_window_size('1200', '1000')
@@ -47,8 +45,6 @@ def login_etc(your_id, your_pass):
         # ログインIDを入力
         login_id = driver.find_element_by_name("username")
         login_id.send_keys(your_id)
-        #login_id = your_id
-        #driver.execute_script('document.getElementsByTagName("username").value="%s";' % login_id)
         print("Succcess: <ユーザーネーム入力完了>")
         print("-----------------------------------------------")
     except:
@@ -59,8 +55,6 @@ def login_etc(your_id, your_pass):
         # パスワードを入力
         password = driver.find_element_by_name("password")
         password.send_keys(your_pass)
-        #login_pass = your_pass
-        #driver.execute_script('document.getElementsByTagName("password").value="%s";' % login_pass)
         print("Succcess: <パスワード入力完了>")
         print("-----------------------------------------------")
     except:
