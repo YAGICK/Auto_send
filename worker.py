@@ -3,7 +3,6 @@ import time
 import random
 import sys
 import os
-import random
 
 from selenium import webdriver
 import selenium
@@ -12,11 +11,11 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 option = Options()
-option.add_argument('--incognito')
 option.add_argument('enable-crash-reporter')
 #プロファイル指定
 PROFILE_PATH = r'xxxxxxxxxxxxxxxxxxxxxx'
 option.add_argument('--user-data-dir=' + PROFILE_PATH)
+#最新ドライバーを都度インストール
 driver = selenium.webdriver.Chrome(ChromeDriverManager().install(),options=option)
 driver.set_window_size('1200', '1000')
 #要素が見つかるまで、最大10秒間待機する
@@ -92,9 +91,6 @@ def login_etc(your_id, your_pass):
         print("ログインできませんでした")
         print("ログイン情報を確認し再度試行してください")
         
-#elementは要素を返す
-#elementsは要素の配列を返す
-        
 def send_message_loop(chara_txt_pass, rndm_time):
     cnt = 0
     snd_cnt = 0
@@ -112,7 +108,6 @@ def send_message_loop(chara_txt_pass, rndm_time):
             element_top_request_path = '/html/body/div[1]/section/div/div[2]/div/div/div[1]/div[3]/div/div/div[1]/a'
             element_top_request = driver.find_element_by_xpath(element_top_request_path)
             element_top_request.click()
-            #ここでsleepしないと早すぎて後が読み込めなくなる
             time.sleep(1)
         except:
             print("Error: <最上部のリクエストに移動できませんでした>")
@@ -155,17 +150,17 @@ def send_message_loop(chara_txt_pass, rndm_time):
             time.sleep(1)
             cnt+=1
             snd_cnt+=1
-            print('==========================================================')
+            print('='*35)
             print(f'Succcess:<*******{cnt}回目送信完了******合計{snd_cnt}件>')
-            print('----------------------------------------------------------')
+            print('='*35)
         except:
             print("Error: <送信できませんでした>")
             driver.quit()
         try:
             if cnt == num-1:
-                print('==========================================================')
+                print('='*35)
                 print(f'<********{(num-1)}回目なのでページを更新します********>')
-                print('==========================================================')
+                print('='*35)
                 cnt = 0
                 driver.refresh()
                 #time.sleep(1)
@@ -176,4 +171,3 @@ def send_message_loop(chara_txt_pass, rndm_time):
 login_etc(ID, PASS)
 send_message_loop(TEXT_PASS_BE, RNDM_TIME)
     
-
